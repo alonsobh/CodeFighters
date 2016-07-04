@@ -66,6 +66,11 @@ namespace CodeFighter.BL
             return GetMessage(Player1) ?? GetMessage(Player2);
         }
 
+        public bool CanFatalityPlayer1()
+        {
+            return false;
+        }
+
         public string GetMessage(Player player)
         {
             return player.Life < 1 ? null :

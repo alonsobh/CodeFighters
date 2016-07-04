@@ -2,16 +2,85 @@
 
 <div>
     <div>
-        <h6 id="Player1Name">@Model.Player1.Name</h6>
-        <h6 id="Player2Name">@Model.Player2.Name</h6>
+        <div>
+            <h6 id="Player1Name">@Model.Player1.Name</h6>
+            <h6 id="Player1Life">@Model.Player1.LifeString</h6>
+            <div>
+                @using (Html.BeginForm("Index", "Game", new {isPlayer1 = true, Move = "P"}, FormMethod.Post))
+                {
+                    <input type="submit" id="Player1Punch" name="submit" value="Punch" disabled=@(Model.HasWinner() ? "true" : "false")/>
+                }
+                @using (Html.BeginForm("Index", "Game", new {isPlayer1 = true, Move = "K"}, FormMethod.Post))
+                {
+                    <input type="submit" id="Player1Kick" name="submit" value="Kick" disabled=@(Model.HasWinner() ? "true" : "false")/>
+                }
+                @using (Html.BeginForm("Index", "Game", new {isPlayer1 = true, Move = "S"}, FormMethod.Post))
+                {
+                    <input type="submit" id="Player1Special" name="submit" value="Special" disabled=@(Model.HasWinner() ? "true" : "false")/>
+                }
+                @using (Html.BeginForm("Index", "Game", new {isPlayer1 = true, Move = "H"}, FormMethod.Post))
+                {
+                    <input type="submit" id="Player1Heal" name="submit" value="Heal" disabled=@(Model.HasWinner() ? "true" : "false")/>
+                }
+                @if (Model.CanFatalityPlayer1())
+                {
+                    using (Html.BeginForm("Index", "Game", new {isPlayer1 = true, Move = "F"}, FormMethod.Post))
+                    {
+                        <input type="submit" id="Player1Fatality" name="submit" value="Fatality"/>
+                    }
+                }
+            </div>
+            <h6 id="Player1Energy">@Model.Player1.EnergyString</h6>
 
 
-        @Model.Player1.LifeString
-        @Model.Player2.LifeString
+        </div>
+        <div>
+            <h6 id="Player2Name">@Model.Player2.Name</h6>
+            <h6 id="Player2Life">@Model.Player2.LifeString</h6>
+            <div>
+                @using (Html.BeginForm("Index", "Match", new { isPlayer1 = false, Move = "P" }, FormMethod.Post))
+                {
+                    if (Model.HasWinner())
+                    {
+                        <input type="submit" id="Player2Punch" name="submit" value="Punch" disabled/>
+                    }
+                    else
+                    {
+                        <input type="submit" id="Player2Punch" name="submit" value="Punch" />
+                    }
+                }
+                @using (Html.BeginForm("Index", "Game", new { isPlayer1 = false, Move = "K" }, FormMethod.Post))
+                {
+                    if (Model.HasWinner())
+                    {
+                        <input type="submit" id="Player2Kick" name="submit" value="Kick" disabled />
+                    }
+                    else
+                    {
+                        <input type="submit" id="Player2Kick" name="submit" value="Kick" />
+                    }
+                }
+                @using (Html.BeginForm("Index", "Game", new { isPlayer1 = false, Move = "S" }, FormMethod.Post))
+                {
+                    <input type="submit" id="Player2Special" name="submit" value="Special" disabled=@(Model.HasWinner() ? "true" : "false") />
+                }
+                @using (Html.BeginForm("Index", "Game", new { isPlayer1 = false, Move = "H" }, FormMethod.Post))
+                {
+                    <input type="submit" id="Player2Heal" name="submit" value="Heal" disabled=@(Model.HasWinner() ? "true" : "false") />
+                }
+                @if (Model.CanFatalityPlayer1())
+                {
+                    using (Html.BeginForm("Index", "Game", new { isPlayer1 = false, Move = "F" }, FormMethod.Post))
+                    {
+                        <input type="submit" id="Player2Fatality" name="submit" value="Fatality" />
+                    }
+                }
+            </div>
+            <h6 id="Player2Energy">@Model.Player2.EnergyString</h6>
+        </div>
 
 
 
 
     </div>
-
 </div>

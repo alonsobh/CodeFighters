@@ -16,7 +16,7 @@
     <RootNamespace>CodeFighter.UI.Web</RootNamespace>
     <AssemblyName>CodeFighter.UI.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -141,6 +141,14 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -165,12 +173,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Fight\Index.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -182,7 +191,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FinalPlayController.cs" />
-    <Compile Include="Controllers\FightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,7 +202,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Views\FinalPlay\" />
-    <Folder Include="Views\Match\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeFighter.BL\CodeFighter.BL.csproj">
@@ -223,7 +230,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58949</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58949/</IISUrl>
+          <IISUrl>http://localhost/CodeFighter.UI.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

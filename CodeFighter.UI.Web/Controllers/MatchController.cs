@@ -7,10 +7,15 @@ namespace CodeFighter.UI.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+
+            return View(CurrentGame);
         }
 
 
+        private void SetNewGame()
+        {
+            CurrentGame = new Game(CurrentGame.Player1.Name, CurrentGame.Player1.Role, CurrentGame.Player2.Name, CurrentGame.Player2.Role);
+        }
 
         private Game CurrentGame
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
 
 namespace CodeFighter.BL.Test
@@ -136,6 +137,27 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(200, game.Player1.Life);
             Assert.AreEqual(0, game.Player2.Energy);
             Assert.AreEqual(0, game.Player1.Energy);
+        }
+
+        [TestMethod]
+        public void GameHasAWinner()
+        {
+            game.Player2.SetLife(10);
+            game.Kick(true);
+            Assert.AreEqual(true, game.HasWinner());
+            try
+            {
+                game.Kick(true);
+                Assert.Fail("no move should be allowed");
+            }
+            catch (DataException ex)
+            {
+                Assert.IsTrue(ex.Message.Contains("winner"));
+            }
+            catch (Exception)
+            {
+                Assert.Fail("wrong exception");
+            }
         }
 
         [TestMethod]

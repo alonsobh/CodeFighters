@@ -14,97 +14,35 @@ namespace CodeFighter.BL.Test
         }
 
         [TestMethod]
-        public void Player1Punch()
+        public void Player2FatalityAndPerfect()
         {
-            game.Punch(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(190, game.Player2.Life);
-            Assert.AreEqual(5, game.Player1.Energy);
-            Assert.AreEqual(0, game.Player2.Energy);
-        }
-
-        [TestMethod]
-        public void Player2Punch()
-        {
-            game.Punch(false);
-            Assert.AreEqual(190, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(5, game.Player2.Energy);
-        }
-
-        [TestMethod]
-        public void Player1Kick()
-        {
-            game.Kick(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(180, game.Player2.Life);
-            Assert.AreEqual(8, game.Player1.Energy);
-            Assert.AreEqual(0, game.Player2.Energy);
-        }
-
-        [TestMethod]
-        public void Player2Kick()
-        {
-            game.Kick(false);
-            Assert.AreEqual(180, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(8, game.Player2.Energy);
-        }
-
-        [TestMethod]
-        public void Player1Special()
-        {
-            game.Player1.FillEnergy();
-            game.Special(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(170, game.Player2.Life);
-            Assert.AreEqual(15, game.Player1.Energy);
-            Assert.AreEqual(0, game.Player2.Energy);
-        }
-
-        [TestMethod]
-        public void Player2Special()
-        {
+            game.Player1.SetLife(0);
             game.Player2.FillEnergy();
-            game.Special(false);
-            Assert.AreEqual(170, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(15, game.Player2.Energy);
+            Assert.AreEqual("FATALITY!!! Jose wins Perfectly", game.GetWinner());
         }
 
         [TestMethod]
-        public void Player1Heal()
+        public void Player2Perfect()
         {
-            game.Player1.FillEnergy();
-            game.Player1.SetLife(150);
-            Assert.AreEqual(150, game.Player1.Life);
-            Assert.AreEqual(100, game.Player1.Energy);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(0, game.Player2.Energy);
-            game.Heal(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(0, game.Player2.Energy);
+            game.Player1.SetLife(0);
+            Assert.AreEqual("Jose wins Perfectly", game.GetWinner());
         }
 
         [TestMethod]
-        public void Player2Heal()
+        public void Player2wins()
         {
+            game.Player1.SetLife(0);
+            game.Player2.SetLife(90);
+            Assert.AreEqual("Jose wins", game.GetWinner());
+        }
+
+        [TestMethod]
+        public void Player2Fatality()
+        {
+            game.Player1.SetLife(0);
             game.Player2.FillEnergy();
-            game.Player2.SetLife(150);
-            Assert.AreEqual(150, game.Player2.Life);
-            Assert.AreEqual(100, game.Player2.Energy);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(0, game.Player1.Energy);
-            game.Heal(false);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(0, game.Player2.Energy);
-            Assert.AreEqual(0, game.Player1.Energy);
+            game.Player2.SetLife(90);
+            Assert.AreEqual("FATALITY!!! Jose wins", game.GetWinner());
         }
     }
 }

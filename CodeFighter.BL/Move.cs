@@ -28,7 +28,7 @@
     {
         public override int Power { get; } = 30;
         public override int EfectOnSelf { get; } = 0;
-        public override int EnergyBonus { get; } = 15;
+        public override int EnergyBonus { get; } = -85;
         public override bool RequiresFullEnergy { get; } = true;
     }
 
@@ -36,7 +36,7 @@
     {
         public override int Power { get; } = 0;
         public override int EfectOnSelf { get; } = 50;
-        public override int EnergyBonus { get; } = 0;
+        public override int EnergyBonus { get; } = -100;
         public override bool RequiresFullEnergy { get; } = true;
     }
 

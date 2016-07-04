@@ -4,6 +4,15 @@ namespace CodeFighter.BL
 {
     public class Game
     {
+        public bool CanApplySpecial(bool isPlayer1)
+        {
+            return isPlayer1 ? EnergyPlayer1 == 100 : EnergyPlayer2 == 100;
+        }
+        public bool CanApplyHeal(bool isPlayer1)
+        {
+            return isPlayer1 ? EnergyPlayer1 == 100 : EnergyPlayer2 == 100;
+        }
+
         //TODO:set to internal
         public void FillEnergy(bool isPlayer1)
         {

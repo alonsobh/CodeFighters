@@ -55,6 +55,22 @@ namespace CodeFighter.BL.Test
         }
 
         [TestMethod]
+        public void Player1CanApplySpecial()
+        {
+            Assert.AreEqual(false, game.CanApplySpecial(true));
+            game.FillEnergy(true);
+            Assert.AreEqual(true, game.CanApplySpecial(true));
+        }
+
+        [TestMethod]
+        public void Player1CanApplyHeal()
+        {
+            Assert.AreEqual(false, game.CanApplyHeal(true));
+            game.FillEnergy(true);
+            Assert.AreEqual(true, game.CanApplyHeal(true));
+        }
+
+        [TestMethod]
         public void Player1Special()
         {
             game.FillEnergy(true);

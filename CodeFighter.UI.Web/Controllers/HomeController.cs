@@ -9,5 +9,10 @@ namespace CodeFighter.UI.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Go()
+        {
+            return RedirectToAction("Index", "Fight");
+        }
     }
 }

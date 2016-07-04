@@ -41,8 +41,8 @@ namespace CodeFighter.UI.Web.Test
         public void VerifyExistsRole()
         {
             driver.Url = "http://localhost/CodeFighter.UI.Web/Home/Index";
-            var player1Type = driver.FindElement(By.Id("Player1type")).Text;
-            var player2Type = driver.FindElement(By.Id("Player2type")).Text;
+            var player1Type = driver.FindElement(By.Id("PlayerType1")).Text;
+            var player2Type = driver.FindElement(By.Id("PlayerType2")).Text;
             Assert.AreEqual(true, player1Type.Contains(GameRoleList.Dev.ToString()));
             Assert.AreEqual(true, player1Type.Contains(GameRoleList.BA.ToString()));
             Assert.AreEqual(true, player1Type.Contains(GameRoleList.PM.ToString()));

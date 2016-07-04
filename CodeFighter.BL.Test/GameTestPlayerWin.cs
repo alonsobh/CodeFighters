@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
 
 namespace CodeFighter.BL.Test
 {
     [TestClass]
-    public class GameTestAttack
+    public class GameTestPlayerWin
     {
         private Game game;
 
@@ -77,20 +76,6 @@ namespace CodeFighter.BL.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(DataException))]
-        public void Player1SpecialFail()
-        {
-            game.Special(true);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(DataException))]
-        public void Player2SpecialFail()
-        {
-            game.Special(false);
-        }
-
-        [TestMethod]
         public void Player1Heal()
         {
             game.FillEnergy(true);
@@ -115,25 +100,6 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(100, game.EnergyPlayer2);
             Assert.AreEqual(200, game.LifePLayer1);
             Assert.AreEqual(0, game.EnergyPlayer1);
-            game.Heal(false);
-            Assert.AreEqual(200, game.LifePLayer2);
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(DataException))]
-        public void Player1HealFail()
-        {
-            game.Heal(true);
-        }
-
-        [TestMethod]
-        public void Player2HealOver200()
-        {
-            game.FillEnergy(false);
-            game.SetLife(false, 170);
             game.Heal(false);
             Assert.AreEqual(200, game.LifePLayer2);
             Assert.AreEqual(200, game.LifePLayer1);

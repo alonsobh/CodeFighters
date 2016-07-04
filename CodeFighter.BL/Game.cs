@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 
 namespace CodeFighter.BL
 {
@@ -46,7 +45,7 @@ namespace CodeFighter.BL
 
         public void Punch(bool isPlayer1)
         {
-            ApplyMove( isPlayer1, new Punch());
+            ApplyMove(isPlayer1, new Punch());
         }
 
         public void Kick(bool isPlayer1)
@@ -72,7 +71,7 @@ namespace CodeFighter.BL
                 {
                     if (EnergyPlayer1 == 100)
                         EnergyPlayer1 = 0;
-                    else 
+                    else
                         throw new DataException("Energy Must Be Full");
                 }
                 LifePLayer1 += move.EfectOnSelf;
@@ -92,6 +91,8 @@ namespace CodeFighter.BL
                 LifePLayer1 -= move.Power;
                 EnergyPlayer2 += move.EnergyBonus;
             }
+            if (LifePLayer1 > 200) LifePLayer1 = 200;
+            if (LifePLayer2 > 200) LifePLayer2 = 200;
         }
     }
 }

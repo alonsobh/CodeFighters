@@ -6,10 +6,11 @@ namespace CodeFighter.BL.Test
     public class GameTestFight
     {
         private Game game;
+
         [TestInitialize]
         public void Initialize()
         {
-            game = new Game("Juan","Jose");
+            game = new Game("Juan", GameRoleList.Dev, "Jose", GameRoleList.PM);
         }
 
         [TestMethod]
@@ -17,6 +18,13 @@ namespace CodeFighter.BL.Test
         {
             Assert.AreEqual("Juan", game.NamePlayer1);
             Assert.AreEqual("Jose", game.NamePlayer2);
+        }
+
+        [TestMethod]
+        public void GameStartWithRole()
+        {
+            Assert.AreEqual(GameRoleList.Dev, game.RolePlayer1);
+            Assert.AreEqual(GameRoleList.PM, game.RolePlayer2);
         }
     }
 }

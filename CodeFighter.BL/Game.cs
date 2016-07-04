@@ -21,5 +21,20 @@
         public int LifePLayer2 { get; set; } = 200;
         public int EnergyPlayer2 { get; set; }
         public GameRoleList RolePlayer2 { get; private set; }
+
+
+        public void Punch(bool isPlayer1)
+        {
+            if (isPlayer1)
+            {
+                LifePLayer2 -= 10;
+                EnergyPlayer1 += 5;
+            }
+            else
+            {
+                LifePLayer1 -= 10;
+                EnergyPlayer2 += 5;
+            }
+        }
     }
 }

@@ -22,8 +22,8 @@ namespace CodeFighter.UI.Web.Controllers
         {
             ViewBag.PlayerName1 = Game.Player1.Name;
             ViewBag.PlayerName2 = Game.Player2.Name;
-            ViewBag.PlayerScore1 = Game.Player1.Life.ToString() + "/200";
-            ViewBag.PlayerScore2 = Game.Player2.Life.ToString() + "/200";
+            ViewBag.PlayerScore1 = Game.Player1.EnergyString;
+            ViewBag.PlayerScore2 = Game.Player2.EnergyString;
             return View();
         }
     }

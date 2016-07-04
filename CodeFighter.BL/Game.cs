@@ -57,7 +57,7 @@ namespace CodeFighter.BL
         public string GetWinner()
         {
             if (!HasWinner())
-                throw new DataException("There is no winner");
+                throw new DataException("There is no winner.");
             return GetMessage(Player1) ?? GetMessage(Player2);
         }
 
@@ -75,10 +75,10 @@ namespace CodeFighter.BL
         {
             return player.Life < 1 ? null :
 
-                string.Format("{0}{1} wins{2}",
-                player.Energy == 100 ? "FATALITY!!! " : string.Empty,
+                string.Format("{0}{1} wins{2}.",
+                player.Energy == Player.MaxEnergy ? "FATALITY!!! " : string.Empty,
                 player.Name,
-                player.Life == 400 ? " Perfectly" : string.Empty);
+                player.Life == Player.MaxLife ? " Perfectly" : string.Empty);
         }
 
         public bool HasWinner()

@@ -10,6 +10,7 @@ namespace CodeFighter.UI.Web.Controllers
             ViewBag.Winner = CurrentGame.GetWinner();
             if (ScorePlayer1 > 1 || ScorePlayer2 > 1)
             {
+                ViewBag.Winner += " You Won The Game.";
                 ScorePlayer1 = 0;
                 ScorePlayer2 = 0;
             }

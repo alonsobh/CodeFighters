@@ -18,14 +18,14 @@ namespace CodeFighter.BL.Test
         {
             game.Player1.SetLife(0);
             game.Player2.FillEnergy();
-            Assert.AreEqual("FATALITY!!! Jose wins Perfectly", game.GetWinner());
+            Assert.AreEqual("FATALITY!!! Jose wins Perfectly.", game.GetWinner());
         }
 
         [TestMethod]
         public void Player2Perfect()
         {
             game.Player1.SetLife(0);
-            Assert.AreEqual("Jose wins Perfectly", game.GetWinner());
+            Assert.AreEqual("Jose wins Perfectly.", game.GetWinner());
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace CodeFighter.BL.Test
         {
             game.Player1.SetLife(0);
             game.Player2.SetLife(90);
-            Assert.AreEqual("Jose wins", game.GetWinner());
+            Assert.AreEqual("Jose wins.", game.GetWinner());
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace CodeFighter.BL.Test
             game.Player1.SetLife(0);
             game.Player2.FillEnergy();
             game.Player2.SetLife(90);
-            Assert.AreEqual("FATALITY!!! Jose wins", game.GetWinner());
+            Assert.AreEqual("FATALITY!!! Jose wins.", game.GetWinner());
         }
     }
 }

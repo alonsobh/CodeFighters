@@ -35,7 +35,7 @@
 
         public bool CanApplyHeal()
         {
-            return IsEnergyFull();
+            return IsEnergyFull() && Life < MaxLife;
         }
 
         public const int MaxLife = 200;

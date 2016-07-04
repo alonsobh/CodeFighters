@@ -36,7 +36,6 @@ namespace CodeFighter.UI.Web.Controllers
             else
                 ScorePlayer2++;
             return RedirectToAction("Index", "FinalPlay");
-
         }
 
         private ActionResult ReturnView()

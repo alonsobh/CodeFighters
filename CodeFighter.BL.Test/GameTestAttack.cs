@@ -21,7 +21,7 @@ namespace CodeFighter.BL.Test
             game.Punch(true);
             Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife-10, game.Player2.Life);
-            Assert.AreEqual(5, game.Player1.Energy);
+            Assert.AreEqual(10, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
 
@@ -32,7 +32,7 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(Player.MaxLife-10, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(5, game.Player2.Energy);
+            Assert.AreEqual(10, game.Player2.Energy);
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace CodeFighter.BL.Test
             game.Kick(true);
             Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife-20, game.Player2.Life);
-            Assert.AreEqual(8, game.Player1.Energy);
+            Assert.AreEqual(16, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
 
@@ -52,7 +52,7 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(Player.MaxLife-20, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(8, game.Player2.Energy);
+            Assert.AreEqual(16, game.Player2.Energy);
         }
 
         [TestMethod]
@@ -67,6 +67,7 @@ namespace CodeFighter.BL.Test
         public void Player1CanApplyHeal()
         {
             Assert.AreEqual(false, game.Player1.CanApplyHeal());
+            game.Kick(false);
             game.Player1.FillEnergy();
             Assert.AreEqual(true, game.Player1.CanApplyHeal());
         }
@@ -78,7 +79,7 @@ namespace CodeFighter.BL.Test
             game.Special(true);
             Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife-30, game.Player2.Life);
-            Assert.AreEqual(15, game.Player1.Energy);
+            Assert.AreEqual(30, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
 
@@ -90,7 +91,7 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(Player.MaxLife-30, game.Player1.Life);
             Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
-            Assert.AreEqual(15, game.Player2.Energy);
+            Assert.AreEqual(30, game.Player2.Energy);
         }
 
         [TestMethod]

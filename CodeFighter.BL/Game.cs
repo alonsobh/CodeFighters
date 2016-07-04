@@ -12,13 +12,13 @@
 
         //Player 1
         public string NamePlayer1 { get; private set; }
-        public int LifePLayer1 { get; set; }
+        public int LifePLayer1 { get; set; } = 200;
         public int EnergyPlayer1 { get; set; }
         public GameRoleList RolePlayer1 { get; private set; }
 
         //Player 2
         public string NamePlayer2 { get; private set; }
-        public int LifePLayer2 { get; set; }
+        public int LifePLayer2 { get; set; } = 200;
         public int EnergyPlayer2 { get; set; }
         public GameRoleList RolePlayer2 { get; private set; }
     }

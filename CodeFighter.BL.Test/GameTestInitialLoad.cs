@@ -3,7 +3,7 @@
 namespace CodeFighter.BL.Test
 {
     [TestClass]
-    public class GameTestFight
+    public class GameTestInitialLoad
     {
         private Game game;
 
@@ -25,6 +25,20 @@ namespace CodeFighter.BL.Test
         {
             Assert.AreEqual(GameRoleList.Dev, game.RolePlayer1);
             Assert.AreEqual(GameRoleList.PM, game.RolePlayer2);
+        }
+
+        [TestMethod]
+        public void GameStartLife200()
+        {
+            Assert.AreEqual(200, game.LifePLayer1);
+            Assert.AreEqual(200, game.LifePLayer2);
+        }
+
+        [TestMethod]
+        public void GameStartEnergy0()
+        {
+            Assert.AreEqual(0, game.EnergyPlayer1);
+            Assert.AreEqual(0, game.EnergyPlayer2);
         }
     }
 }

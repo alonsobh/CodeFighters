@@ -12,25 +12,34 @@
         public GameRoleList Role { get; private set; }
 
         public int Energy { get; set; } = 0;
-        public int Life { get; set; } = 200;
-        public string LifeString => string.Format("{0}/200", Life);
-        public string EnergyString => string.Format("{0}/100", Energy);
+        public int Life { get; set; } = MaxLife;
+        public string LifeString => string.Format("{0}/{1}", Life, MaxLife);
+        public string EnergyString => string.Format("{0}/{1}", Energy, MaxEnergy);
 
 
 
         internal bool CanApplyMove(Move move)
         {
-            return !move.RequiresFullEnergy || Energy == 100;
+            return !move.RequiresFullEnergy || Energy == MaxEnergy;
         }
 
         public bool CanApplySpecial()
         {
-            return Energy == 100;
+            return Energy == MaxEnergy;
         }
 
         public bool CanApplyHeal()
         {
-            return Energy == 100;
+            return Energy == MaxEnergy;
+        }
+
+        private const int MaxLife = 400;
+        private const int MaxEnergy = 100;
+
+        public void ValidateLifeAndEnergy()
+        {
+            if (Life > MaxLife) Life = MaxLife;
+            if (Energy > MaxEnergy) Energy = MaxEnergy;
         }
 
         //TODO:set to internal

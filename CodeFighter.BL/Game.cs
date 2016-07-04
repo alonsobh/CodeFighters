@@ -49,15 +49,10 @@ namespace CodeFighter.BL
             defendant.Life -= move.Power;
             attacker.Energy += move.EnergyBonus;
 
-            ValidateLifeAndEnergy(Player1);
-            ValidateLifeAndEnergy(Player2);
+            Player1.ValidateLifeAndEnergy();
+            Player2.ValidateLifeAndEnergy();
         }
 
-        private void ValidateLifeAndEnergy(Player player)
-        {
-            if (player.Life > 200) player.Life = 200;
-            if (player.Energy > 100) player.Energy = 100;
-        }
 
         public string GetWinner()
         {
@@ -71,6 +66,11 @@ namespace CodeFighter.BL
             return false;
         }
 
+        public bool CanFatalityPlayer2()
+        {
+            return false;
+        }
+
         public string GetMessage(Player player)
         {
             return player.Life < 1 ? null :
@@ -78,7 +78,7 @@ namespace CodeFighter.BL
                 string.Format("{0}{1} wins{2}",
                 player.Energy == 100 ? "FATALITY!!! " : string.Empty,
                 player.Name,
-                player.Life == 200 ? " Perfectly" : string.Empty);
+                player.Life == 400 ? " Perfectly" : string.Empty);
         }
 
         public bool HasWinner()

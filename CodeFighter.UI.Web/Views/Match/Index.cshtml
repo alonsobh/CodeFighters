@@ -23,27 +23,27 @@
             <h6 id="Player1Name">@Model.Player1.Name</h6>
             <h6 id="Player1Life">@Model.Player1.LifeString</h6>
             <div>
-                @using (Html.BeginForm("Index", "Match", new { isPlayer1 = true, Move = "P" }, FormMethod.Post))
+                @using (Html.BeginForm("Index", "Match", new {isPlayer1 = true, Move = "P"}, FormMethod.Post))
                 {
-                    <input type="submit" id="Player1Punch" name="submit" value="Punch" @((Model.HasWinner()) ? "disabled" : "") />
+                    <input type="submit" id="Player1Punch" name="submit" value="Punch" @((Model.HasWinner()) ? "disabled" : "")/>
                 }
-                @using (Html.BeginForm("Index", "Match", new { isPlayer1 = true, Move = "K" }, FormMethod.Post))
+                @using (Html.BeginForm("Index", "Match", new {isPlayer1 = true, Move = "K"}, FormMethod.Post))
                 {
-                    <input type="submit" id="Player1Kick" name="submit" value="Kick" @((Model.HasWinner()) ? "disabled" : "") />
+                    <input type="submit" id="Player1Kick" name="submit" value="Kick" @((Model.HasWinner()) ? "disabled" : "")/>
                 }
-                @using (Html.BeginForm("Index", "Match", new { isPlayer1 = true, Move = "S" }, FormMethod.Post))
+                @using (Html.BeginForm("Index", "Match", new {isPlayer1 = true, Move = "S"}, FormMethod.Post))
                 {
-                    <input type="submit" id="Player1Special" name="submit" value="Special" @((Model.HasWinner() || !Model.Player1.CanApplySpecial()) ? "disabled" : "") />
+                    <input type="submit" id="Player1Special" name="submit" value="Special" @((Model.HasWinner() || !Model.Player1.CanApplySpecial()) ? "disabled" : "")/>
                 }
-                @using (Html.BeginForm("Index", "Match", new { isPlayer1 = true, Move = "H" }, FormMethod.Post))
+                @using (Html.BeginForm("Index", "Match", new {isPlayer1 = true, Move = "H"}, FormMethod.Post))
                 {
-                    <input type="submit" id="Player1Heal" name="submit" value="Heal" @((Model.HasWinner() || !Model.Player1.CanApplyHeal()) ? "disabled" : "") />
+                    <input type="submit" id="Player1Heal" name="submit" value="Heal" @((Model.HasWinner() || !Model.Player1.CanApplyHeal()) ? "disabled" : "")/>
                 }
                 @if (Model.CanFatalityPlayer1())
                 {
-                    using (Html.BeginForm("Index", "Match", new { isPlayer1 = true, Move = "F" }, FormMethod.Post))
+                    using (Html.BeginForm("Index", "Match", new {isPlayer1 = true, Move = "F"}, FormMethod.Post))
                     {
-                        <input type="submit" id="Player1Fatality" name="submit" value="Fatality" />
+                        <input type="submit" id="Player1Fatality" name="submit" value="Fatality"/>
                     }
                 }
             </div>
@@ -51,6 +51,7 @@
 
 
         </div>
+        @ViewBag.Score
         <div id="right_col">
             <h6 id="Player2Name">@Model.Player2.Name</h6>
             <h6 id="Player2Life">@Model.Player2.LifeString</h6>
@@ -81,9 +82,5 @@
             </div>
             <h6 id="Player2Energy">@Model.Player2.EnergyString</h6>
         </div>
-
-
-
-
     </div>
 </div>

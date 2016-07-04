@@ -63,12 +63,12 @@ namespace CodeFighter.BL
 
         public bool CanFatalityPlayer1()
         {
-            return false;
+            return HasWinner()&&Player1.Life>0&&Player1.IsEnergyFull();
         }
 
         public bool CanFatalityPlayer2()
         {
-            return false;
+            return HasWinner() && Player2.Life > 0 && Player2.IsEnergyFull();
         }
 
         public string GetMessage(Player player)

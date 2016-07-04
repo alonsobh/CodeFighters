@@ -33,6 +33,11 @@
             ApplyMove(isPlayer1, new Kick());
         }
 
+        public void Special(bool isPlayer1)
+        {
+            ApplyMove(isPlayer1, new Special());
+        }
+
         private void ApplyMove(bool isPlayer1, Move move)
         {
             if (isPlayer1)

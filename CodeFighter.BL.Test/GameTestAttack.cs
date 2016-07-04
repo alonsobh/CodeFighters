@@ -52,5 +52,25 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(8, game.EnergyPlayer2);
         }
+
+        [TestMethod]
+        public void Player1Special()
+        {
+            game.Special(true);
+            Assert.AreEqual(200, game.LifePLayer1);
+            Assert.AreEqual(170, game.LifePLayer2);
+            Assert.AreEqual(15, game.EnergyPlayer1);
+            Assert.AreEqual(0, game.EnergyPlayer2);
+        }
+
+        [TestMethod]
+        public void Player2Special()
+        {
+            game.Special(false);
+            Assert.AreEqual(170, game.LifePLayer1);
+            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(0, game.EnergyPlayer1);
+            Assert.AreEqual(15, game.EnergyPlayer2);
+        }
     }
 }

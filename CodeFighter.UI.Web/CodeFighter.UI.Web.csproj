@@ -202,6 +202,12 @@
       <Name>CodeFighter.BL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeFighter.BL\CodeFighter.BL.csproj">
+      <Project>{e639e3ad-5a31-4bf3-ba00-60ee52404064}</Project>
+      <Name>CodeFighter.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

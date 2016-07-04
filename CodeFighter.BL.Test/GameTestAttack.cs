@@ -19,8 +19,8 @@ namespace CodeFighter.BL.Test
         public void Player1Punch()
         {
             game.Punch(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(190, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife-10, game.Player2.Life);
             Assert.AreEqual(5, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
@@ -29,8 +29,8 @@ namespace CodeFighter.BL.Test
         public void Player2Punch()
         {
             game.Punch(false);
-            Assert.AreEqual(190, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife-10, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
             Assert.AreEqual(5, game.Player2.Energy);
         }
@@ -39,8 +39,8 @@ namespace CodeFighter.BL.Test
         public void Player1Kick()
         {
             game.Kick(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(180, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife-20, game.Player2.Life);
             Assert.AreEqual(8, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
@@ -49,8 +49,8 @@ namespace CodeFighter.BL.Test
         public void Player2Kick()
         {
             game.Kick(false);
-            Assert.AreEqual(180, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife-20, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
             Assert.AreEqual(8, game.Player2.Energy);
         }
@@ -76,8 +76,8 @@ namespace CodeFighter.BL.Test
         {
             game.Player1.FillEnergy();
             game.Special(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(170, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife-30, game.Player2.Life);
             Assert.AreEqual(15, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
@@ -87,8 +87,8 @@ namespace CodeFighter.BL.Test
         {
             game.Player2.FillEnergy();
             game.Special(false);
-            Assert.AreEqual(170, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife-30, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
             Assert.AreEqual(15, game.Player2.Energy);
         }
@@ -111,14 +111,14 @@ namespace CodeFighter.BL.Test
         public void Player1Heal()
         {
             game.Player1.FillEnergy();
-            game.Player1.SetLife(150);
-            Assert.AreEqual(150, game.Player1.Life);
-            Assert.AreEqual(100, game.Player1.Energy);
-            Assert.AreEqual(200, game.Player2.Life);
+            game.Player1.SetLife(Player.MaxLife-50);
+            Assert.AreEqual(Player.MaxLife-50, game.Player1.Life);
+            Assert.AreEqual(Player.MaxEnergy, game.Player1.Energy);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player2.Energy);
             game.Heal(true);
-            Assert.AreEqual(200, game.Player1.Life);
-            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
             Assert.AreEqual(0, game.Player1.Energy);
             Assert.AreEqual(0, game.Player2.Energy);
         }
@@ -127,14 +127,14 @@ namespace CodeFighter.BL.Test
         public void Player2Heal()
         {
             game.Player2.FillEnergy();
-            game.Player2.SetLife(150);
-            Assert.AreEqual(150, game.Player2.Life);
-            Assert.AreEqual(100, game.Player2.Energy);
-            Assert.AreEqual(200, game.Player1.Life);
+            game.Player2.SetLife(Player.MaxLife-50);
+            Assert.AreEqual(Player.MaxLife-50, game.Player2.Life);
+            Assert.AreEqual(Player.MaxEnergy, game.Player2.Energy);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(0, game.Player1.Energy);
             game.Heal(false);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(0, game.Player2.Energy);
             Assert.AreEqual(0, game.Player1.Energy);
         }
@@ -168,13 +168,13 @@ namespace CodeFighter.BL.Test
         }
 
         [TestMethod]
-        public void Player2HealOver200()
+        public void Player2HealOverFull()
         {
             game.Player2.FillEnergy();
-            game.Player2.SetLife(170);
+            game.Player2.SetLife(Player.MaxLife-30);
             game.Heal(false);
-            Assert.AreEqual(200, game.Player2.Life);
-            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player2.Life);
+            Assert.AreEqual(Player.MaxLife, game.Player1.Life);
             Assert.AreEqual(0, game.Player2.Energy);
             Assert.AreEqual(0, game.Player1.Energy);
         }
@@ -184,7 +184,7 @@ namespace CodeFighter.BL.Test
         {
             game.Player2.FillEnergy();
             game.Punch(false);
-            Assert.AreEqual(100, game.Player2.Energy);
+            Assert.AreEqual(Player.MaxEnergy, game.Player2.Energy);
         }
     }
 }

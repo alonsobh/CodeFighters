@@ -64,9 +64,16 @@
   <ItemGroup>
     <Compile Include="MatchTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartPageTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeFighter.BL\CodeFighter.BL.csproj">
+      <Project>{e639e3ad-5a31-4bf3-ba00-60ee52404064}</Project>
+      <Name>CodeFighter.BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

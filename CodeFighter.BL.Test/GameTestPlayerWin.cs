@@ -17,94 +17,94 @@ namespace CodeFighter.BL.Test
         public void Player1Punch()
         {
             game.Punch(true);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(190, game.LifePlayer2);
-            Assert.AreEqual(5, game.EnergyPlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(190, game.Player2.Life);
+            Assert.AreEqual(5, game.Player1.Energy);
+            Assert.AreEqual(0, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player2Punch()
         {
             game.Punch(false);
-            Assert.AreEqual(190, game.LifePlayer1);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
-            Assert.AreEqual(5, game.EnergyPlayer2);
+            Assert.AreEqual(190, game.Player1.Life);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(0, game.Player1.Energy);
+            Assert.AreEqual(5, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player1Kick()
         {
             game.Kick(true);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(180, game.LifePlayer2);
-            Assert.AreEqual(8, game.EnergyPlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(180, game.Player2.Life);
+            Assert.AreEqual(8, game.Player1.Energy);
+            Assert.AreEqual(0, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player2Kick()
         {
             game.Kick(false);
-            Assert.AreEqual(180, game.LifePlayer1);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
-            Assert.AreEqual(8, game.EnergyPlayer2);
+            Assert.AreEqual(180, game.Player1.Life);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(0, game.Player1.Energy);
+            Assert.AreEqual(8, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player1Special()
         {
-            game.FillEnergy(true);
+            game.Player1.FillEnergy();
             game.Special(true);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(170, game.LifePlayer2);
-            Assert.AreEqual(15, game.EnergyPlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(170, game.Player2.Life);
+            Assert.AreEqual(15, game.Player1.Energy);
+            Assert.AreEqual(0, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player2Special()
         {
-            game.FillEnergy(false);
+            game.Player2.FillEnergy();
             game.Special(false);
-            Assert.AreEqual(170, game.LifePlayer1);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
-            Assert.AreEqual(15, game.EnergyPlayer2);
+            Assert.AreEqual(170, game.Player1.Life);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(0, game.Player1.Energy);
+            Assert.AreEqual(15, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player1Heal()
         {
-            game.FillEnergy(true);
-            game.SetLife(true, 150);
-            Assert.AreEqual(150, game.LifePlayer1);
-            Assert.AreEqual(100, game.EnergyPlayer1);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer2);
+            game.Player1.FillEnergy();
+            game.Player1.SetLife(150);
+            Assert.AreEqual(150, game.Player1.Life);
+            Assert.AreEqual(100, game.Player1.Energy);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(0, game.Player2.Energy);
             game.Heal(true);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(0, game.Player1.Energy);
+            Assert.AreEqual(0, game.Player2.Energy);
         }
 
         [TestMethod]
         public void Player2Heal()
         {
-            game.FillEnergy(false);
-            game.SetLife(false, 150);
-            Assert.AreEqual(150, game.LifePlayer2);
-            Assert.AreEqual(100, game.EnergyPlayer2);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer1);
+            game.Player2.FillEnergy();
+            game.Player2.SetLife(150);
+            Assert.AreEqual(150, game.Player2.Life);
+            Assert.AreEqual(100, game.Player2.Energy);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(0, game.Player1.Energy);
             game.Heal(false);
-            Assert.AreEqual(200, game.LifePlayer2);
-            Assert.AreEqual(200, game.LifePlayer1);
-            Assert.AreEqual(0, game.EnergyPlayer2);
-            Assert.AreEqual(0, game.EnergyPlayer1);
+            Assert.AreEqual(200, game.Player2.Life);
+            Assert.AreEqual(200, game.Player1.Life);
+            Assert.AreEqual(0, game.Player2.Energy);
+            Assert.AreEqual(0, game.Player1.Energy);
         }
     }
 }

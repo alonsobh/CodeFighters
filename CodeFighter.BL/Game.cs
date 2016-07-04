@@ -25,16 +25,27 @@
 
         public void Punch(bool isPlayer1)
         {
+            ApplyMove( isPlayer1, new Punch());
+        }
+
+        public void Kick(bool isPlayer1)
+        {
+            ApplyMove(isPlayer1, new Kick());
+        }
+
+        private void ApplyMove(bool isPlayer1, Move move)
+        {
             if (isPlayer1)
             {
-                LifePLayer2 -= 10;
-                EnergyPlayer1 += 5;
+                LifePLayer2 -= move.Power;
+                EnergyPlayer1 += move.Energy;
             }
             else
             {
-                LifePLayer1 -= 10;
-                EnergyPlayer2 += 5;
+                LifePLayer1 -= move.Power;
+                EnergyPlayer2 += move.Energy;
             }
         }
+
     }
 }

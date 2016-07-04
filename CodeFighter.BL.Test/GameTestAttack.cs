@@ -32,5 +32,25 @@ namespace CodeFighter.BL.Test
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(5, game.EnergyPlayer2);
         }
+
+        [TestMethod]
+        public void Player1Kick()
+        {
+            game.Kick(true);
+            Assert.AreEqual(200, game.LifePLayer1);
+            Assert.AreEqual(180, game.LifePLayer2);
+            Assert.AreEqual(8, game.EnergyPlayer1);
+            Assert.AreEqual(0, game.EnergyPlayer2);
+        }
+
+        [TestMethod]
+        public void Player2Kick()
+        {
+            game.Kick(false);
+            Assert.AreEqual(180, game.LifePLayer1);
+            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(0, game.EnergyPlayer1);
+            Assert.AreEqual(8, game.EnergyPlayer2);
+        }
     }
 }

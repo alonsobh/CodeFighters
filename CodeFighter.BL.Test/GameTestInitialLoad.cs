@@ -30,8 +30,8 @@ namespace CodeFighter.BL.Test
         [TestMethod]
         public void GameStartLife200()
         {
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
         }
 
         [TestMethod]

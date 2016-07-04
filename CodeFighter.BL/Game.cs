@@ -16,9 +16,9 @@ namespace CodeFighter.BL
         public void SetLife(bool isPlayer1, int value)
         {
             if (isPlayer1)
-                LifePLayer1 = value;
+                LifePlayer1 = value;
             else
-                LifePLayer2 = value;
+                LifePlayer2 = value;
         }
 
 
@@ -32,13 +32,13 @@ namespace CodeFighter.BL
 
         //Player 1
         public string NamePlayer1 { get; private set; }
-        public int LifePLayer1 { get; set; } = 200;
+        public int LifePlayer1 { get; set; } = 200;
         public int EnergyPlayer1 { get; set; }
         public GameRoleList RolePlayer1 { get; private set; }
 
         //Player 2
         public string NamePlayer2 { get; private set; }
-        public int LifePLayer2 { get; set; } = 200;
+        public int LifePlayer2 { get; set; } = 200;
         public int EnergyPlayer2 { get; set; }
         public GameRoleList RolePlayer2 { get; private set; }
 
@@ -74,8 +74,8 @@ namespace CodeFighter.BL
                     else
                         throw new DataException("Energy Must Be Full");
                 }
-                LifePLayer1 += move.EfectOnSelf;
-                LifePLayer2 -= move.Power;
+                LifePlayer1 += move.EfectOnSelf;
+                LifePlayer2 -= move.Power;
                 EnergyPlayer1 += move.EnergyBonus;
             }
             else
@@ -87,12 +87,14 @@ namespace CodeFighter.BL
                     else
                         throw new DataException("Energy Must Be Full");
                 }
-                LifePLayer2 += move.EfectOnSelf;
-                LifePLayer1 -= move.Power;
+                LifePlayer2 += move.EfectOnSelf;
+                LifePlayer1 -= move.Power;
                 EnergyPlayer2 += move.EnergyBonus;
             }
-            if (LifePLayer1 > 200) LifePLayer1 = 200;
-            if (LifePLayer2 > 200) LifePLayer2 = 200;
+            if (LifePlayer1 > 200) LifePlayer1 = 200;
+            if (LifePlayer2 > 200) LifePlayer2 = 200;
+            if (EnergyPlayer1 > 100) EnergyPlayer1 = 100;
+            if (EnergyPlayer2 > 100) EnergyPlayer2 = 100;
         }
     }
 }

@@ -17,8 +17,8 @@ namespace CodeFighter.BL.Test
         public void Player1Punch()
         {
             game.Punch(true);
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(190, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
+            Assert.AreEqual(190, game.LifePlayer2);
             Assert.AreEqual(5, game.EnergyPlayer1);
             Assert.AreEqual(0, game.EnergyPlayer2);
         }
@@ -27,8 +27,8 @@ namespace CodeFighter.BL.Test
         public void Player2Punch()
         {
             game.Punch(false);
-            Assert.AreEqual(190, game.LifePLayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(190, game.LifePlayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(5, game.EnergyPlayer2);
         }
@@ -37,8 +37,8 @@ namespace CodeFighter.BL.Test
         public void Player1Kick()
         {
             game.Kick(true);
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(180, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
+            Assert.AreEqual(180, game.LifePlayer2);
             Assert.AreEqual(8, game.EnergyPlayer1);
             Assert.AreEqual(0, game.EnergyPlayer2);
         }
@@ -47,8 +47,8 @@ namespace CodeFighter.BL.Test
         public void Player2Kick()
         {
             game.Kick(false);
-            Assert.AreEqual(180, game.LifePLayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(180, game.LifePlayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(8, game.EnergyPlayer2);
         }
@@ -58,8 +58,8 @@ namespace CodeFighter.BL.Test
         {
             game.FillEnergy(true);
             game.Special(true);
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(170, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
+            Assert.AreEqual(170, game.LifePlayer2);
             Assert.AreEqual(15, game.EnergyPlayer1);
             Assert.AreEqual(0, game.EnergyPlayer2);
         }
@@ -69,8 +69,8 @@ namespace CodeFighter.BL.Test
         {
             game.FillEnergy(false);
             game.Special(false);
-            Assert.AreEqual(170, game.LifePLayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(170, game.LifePlayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(15, game.EnergyPlayer2);
         }
@@ -80,13 +80,13 @@ namespace CodeFighter.BL.Test
         {
             game.FillEnergy(true);
             game.SetLife(true, 150);
-            Assert.AreEqual(150, game.LifePLayer1);
+            Assert.AreEqual(150, game.LifePlayer1);
             Assert.AreEqual(100, game.EnergyPlayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer2);
             Assert.AreEqual(0, game.EnergyPlayer2);
             game.Heal(true);
-            Assert.AreEqual(200, game.LifePLayer1);
-            Assert.AreEqual(200, game.LifePLayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
             Assert.AreEqual(0, game.EnergyPlayer1);
             Assert.AreEqual(0, game.EnergyPlayer2);
         }
@@ -96,13 +96,13 @@ namespace CodeFighter.BL.Test
         {
             game.FillEnergy(false);
             game.SetLife(false, 150);
-            Assert.AreEqual(150, game.LifePLayer2);
+            Assert.AreEqual(150, game.LifePlayer2);
             Assert.AreEqual(100, game.EnergyPlayer2);
-            Assert.AreEqual(200, game.LifePLayer1);
+            Assert.AreEqual(200, game.LifePlayer1);
             Assert.AreEqual(0, game.EnergyPlayer1);
             game.Heal(false);
-            Assert.AreEqual(200, game.LifePLayer2);
-            Assert.AreEqual(200, game.LifePLayer1);
+            Assert.AreEqual(200, game.LifePlayer2);
+            Assert.AreEqual(200, game.LifePlayer1);
             Assert.AreEqual(0, game.EnergyPlayer2);
             Assert.AreEqual(0, game.EnergyPlayer1);
         }

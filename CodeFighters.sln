@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFighter.BL", "CodeFight
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFighter.UI.Web.Test", "CodeFighter.UI.Web.Test\CodeFighter.UI.Web.Test.csproj", "{76E55324-49C4-4E1A-8155-997D9569C3F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFighter.UI.Web", "CodeFighter.UI.Web\CodeFighter.UI.Web.csproj", "{800E53F9-FE66-40A6-96EA-341A0BEFDAAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{76E55324-49C4-4E1A-8155-997D9569C3F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E55324-49C4-4E1A-8155-997D9569C3F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E55324-49C4-4E1A-8155-997D9569C3F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800E53F9-FE66-40A6-96EA-341A0BEFDAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800E53F9-FE66-40A6-96EA-341A0BEFDAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800E53F9-FE66-40A6-96EA-341A0BEFDAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800E53F9-FE66-40A6-96EA-341A0BEFDAAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

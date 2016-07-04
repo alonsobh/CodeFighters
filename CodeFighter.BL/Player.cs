@@ -13,6 +13,8 @@
 
         public int Energy { get; set; } = 0;
         public int Life { get; set; } = 200;
+        public string LifeString => string.Format("{0}/200", Life);
+        public string EnergyString => string.Format("{0}/100", Life);
 
 
 

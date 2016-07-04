@@ -29,7 +29,7 @@ namespace CodeFighter.BL.Test
         }
 
         [TestMethod]
-        public void Player2wins()
+        public void Player2Wins()
         {
             game.Player1.SetLife(0);
             game.Player2.SetLife(90);

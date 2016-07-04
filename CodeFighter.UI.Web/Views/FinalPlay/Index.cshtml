@@ -1,19 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@model CodeFighter.BL.Game
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <label id="winner">@ViewBag.Winner</label>
-        <form action="/play/index" method="post">
-            <input type="submit" id="Continue" name="continue" value="Continuar">
-        </form>
-        <form action="/home/index" method="post">
-            <input type="submit" id="Restart" name="restart" value="Reiniciar">
-        </form>
-    </div>
-</body>
-</html>
+<h2>*****************Code Fighter *****************</h2>
+ @*<label id="winner">@ViewBag.Winner</label>*@
+    <label class="alert-danger" id="winner">Player 1 won!!!</label>
+    <form action="/play/index" method="post">
+        <input class="btn-info" type="submit" id="Continue" name="continue" value="Continuar">
+    </form>
+    <form action="/home/index" method="post">
+        <input class="btn-danger" type="submit" id="Restart" name="restart" value="Reiniciar">
+    </form>

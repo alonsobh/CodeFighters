@@ -9,14 +9,16 @@ namespace CodeFighter.UI.Web.Controllers
         {
             ViewBag.Winner = CurrentGame.GetWinner();
             if (ScorePlayer1 > 1 || ScorePlayer2 > 1)
-                SetNewGame();
+            {
+                ScorePlayer1 = 0;
+                ScorePlayer2 = 0;
+            }
+            SetNewGame();
             return View(CurrentGame);
         }
 
         private void SetNewGame()
         {
-            ScorePlayer1 = 0;
-            ScorePlayer2 = 0;
             CurrentGame = new Game(CurrentGame.Player1.Name, CurrentGame.Player1.Role, CurrentGame.Player2.Name, CurrentGame.Player2.Role);
         }
 

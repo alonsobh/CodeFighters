@@ -72,7 +72,7 @@
                 {
                     <input type="submit" id="Player2Heal" name="submit" value="Heal" @((Model.HasWinner() || !Model.Player1.CanApplyHeal()) ? "disabled" : "") />
                 }
-                @if (Model.CanFatalityPlayer1())
+                @if (Model.CanFatalityPlayer2())
                 {
                     using (Html.BeginForm("Index", "Match", new { isPlayer1 = false, Move = "F" }, FormMethod.Post))
                     {

@@ -1,11 +1,12 @@
 ﻿<!DOCTYPE html>
 
 <label id="winner">@ViewBag.Winner</label>
-@using (Html.BeginForm("Index", "Match"))
+
+@using (Html.BeginForm("Index", "Match", FormMethod.Get))
 {
     <input type="submit" value="Continue" />
 }
-@using (Html.BeginForm("Index", "Home"))
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
 {
     <input type="submit" value="Restart" />
 }

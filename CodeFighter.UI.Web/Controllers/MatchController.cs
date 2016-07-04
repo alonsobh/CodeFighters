@@ -8,8 +8,7 @@ namespace CodeFighter.UI.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Score = string.Format("{0}:{1}", ScorePlayer1, ScorePlayer2);
-            return View(CurrentGame);
+            return ReturnView();
         }
 
         [HttpPost]
@@ -21,17 +20,28 @@ namespace CodeFighter.UI.Web.Controllers
                 case "K": CurrentGame.Kick(isPlayer1); break;
                 case "S": CurrentGame.Special(isPlayer1); break;
                 case "H": CurrentGame.Heal(isPlayer1); break;
-                case "F": return RedirectToAction("Index", "FinalPlay");
+                case "F": return GoToResult();
             }
-            ViewBag.Score = string.Format("{0}:{1}", ScorePlayer1, ScorePlayer2);
             if (!CurrentGame.HasWinner())
-                return View(CurrentGame);
-            if (CurrentGame.Player1.Life <= 0)
+                return ReturnView();
+            if (!CurrentGame.CanFatalityPlayer1() && !CurrentGame.CanFatalityPlayer2())
+                return GoToResult();
+            return ReturnView();
+        }
+
+        private ActionResult GoToResult()
+        {
+            if (CurrentGame.Player1.Life > 0)
                 ScorePlayer1++;
             else
                 ScorePlayer2++;
-            if (!CurrentGame.CanFatalityPlayer1() && CurrentGame.CanFatalityPlayer2())
-                return RedirectToAction("Index", "FinalPlay");
+            return RedirectToAction("Index", "FinalPlay");
+
+        }
+
+        private ActionResult ReturnView()
+        {
+            ViewBag.Score = string.Format("{0}:{1}", ScorePlayer1, ScorePlayer2);
             return View(CurrentGame);
         }
 

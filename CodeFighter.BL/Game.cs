@@ -37,15 +37,14 @@ namespace CodeFighter.BL
 
         private void ApplyMove(bool isPlayer1, Move move)
         {
+            if (HasWinner())
+                throw new DataException("There is already a winner");
+
             var attacker = isPlayer1 ? Player1 : Player2;
             var defendant = isPlayer1 ? Player2 : Player1;
-            if (move.RequiresFullEnergy)
-            {
-                if (attacker.Energy == 100)
-                    attacker.Energy = 0;
-                else
-                    throw new DataException("Energy Must Be Full");
-            }
+            if (!attacker.CanApplyMove(move))
+                throw new DataException("Energy Must Be Full");
+
             attacker.Life += move.EfectOnSelf;
             defendant.Life -= move.Power;
             attacker.Energy += move.EnergyBonus;
@@ -58,6 +57,28 @@ namespace CodeFighter.BL
         {
             if (player.Life > 200) player.Life = 200;
             if (player.Energy > 100) player.Energy = 100;
+        }
+
+        public string GetWinner()
+        {
+            if (!HasWinner())
+                throw new DataException("There is no winner");
+            return GetMessage(Player1) ?? GetMessage(Player2);
+        }
+
+        public string GetMessage(Player player)
+        {
+            return player.Life < 1 ? null :
+
+                string.Format("{0}{1} wins{2}",
+                player.Energy == 100 ? "FATALITY!!! " : string.Empty,
+                player.Name,
+                player.Life == 200 ? " Perfectly" : string.Empty);
+        }
+
+        public bool HasWinner()
+        {
+            return Player1.Life < 1 || Player2.Life < 1;
         }
     }
 }

@@ -15,10 +15,17 @@
         public int Life { get; set; } = 200;
 
 
+
+        internal bool CanApplyMove(Move move)
+        {
+            return !move.RequiresFullEnergy || Energy == 100;
+        }
+
         public bool CanApplySpecial()
         {
             return Energy == 100;
         }
+
         public bool CanApplyHeal()
         {
             return Energy == 100;

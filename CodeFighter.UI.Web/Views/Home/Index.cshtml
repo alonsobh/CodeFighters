@@ -1,7 +1,8 @@
 ﻿<html>
 <body>
     <h1>Code Fighters</h1>
-<form action="Home/Go">
+    @using (Html.BeginForm("Go", "Home", FormMethod.Post))
+    {
         <div>
             <label>Player 1</label>
             <input type="text" id="Player1" name="Player1" />
@@ -25,6 +26,6 @@
         <div>
             <input type="submit" value="PLAY" />
         </div>
-    </form>
+    }
 </body>
 </html>

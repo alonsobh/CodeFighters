@@ -1,7 +1,28 @@
-﻿namespace CodeFighter.BL
+﻿using System;
+using System.Data;
+
+namespace CodeFighter.BL
 {
     public class Game
     {
+        //TODO:set to internal
+        public void FillEnergy(bool isPlayer1)
+        {
+            if (isPlayer1)
+                EnergyPlayer1 = 100;
+            else
+                EnergyPlayer2 = 100;
+        }
+        //TODO:set to internal
+        public void SetLife(bool isPlayer1, int value)
+        {
+            if (isPlayer1)
+                LifePLayer1 = value;
+            else
+                LifePLayer2 = value;
+        }
+
+
         public Game(string namePlayer1, GameRoleList rolePlayer1, string namePlayer2, GameRoleList rolePlayer2)
         {
             NamePlayer1 = namePlayer1;
@@ -38,19 +59,39 @@
             ApplyMove(isPlayer1, new Special());
         }
 
+        public void Heal(bool isPlayer1)
+        {
+            ApplyMove(isPlayer1, new Heal());
+        }
+
         private void ApplyMove(bool isPlayer1, Move move)
         {
             if (isPlayer1)
             {
+                if (move.RequiresFullEnergy)
+                {
+                    if (EnergyPlayer1 == 100)
+                        EnergyPlayer1 = 0;
+                    else 
+                        throw new DataException("Energy Must Be Full");
+                }
+                LifePLayer1 += move.EfectOnSelf;
                 LifePLayer2 -= move.Power;
-                EnergyPlayer1 += move.Energy;
+                EnergyPlayer1 += move.EnergyBonus;
             }
             else
             {
+                if (move.RequiresFullEnergy)
+                {
+                    if (EnergyPlayer2 == 100)
+                        EnergyPlayer2 = 0;
+                    else
+                        throw new DataException("Energy Must Be Full");
+                }
+                LifePLayer2 += move.EfectOnSelf;
                 LifePLayer1 -= move.Power;
-                EnergyPlayer2 += move.Energy;
+                EnergyPlayer2 += move.EnergyBonus;
             }
         }
-
     }
 }

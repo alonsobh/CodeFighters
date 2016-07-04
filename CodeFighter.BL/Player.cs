@@ -25,16 +25,21 @@
 
         public bool CanApplySpecial()
         {
+            return IsEnergyFull();
+        }
+
+        public bool IsEnergyFull()
+        {
             return Energy == MaxEnergy;
         }
 
         public bool CanApplyHeal()
         {
-            return Energy == MaxEnergy;
+            return IsEnergyFull();
         }
 
-        private const int MaxLife = 400;
-        private const int MaxEnergy = 100;
+        public const int MaxLife = 400;
+        public const int MaxEnergy = 100;
 
         public void ValidateLifeAndEnergy()
         {

@@ -1,11 +1,11 @@
-﻿@model CodeFighter.BL.Game
+﻿<!DOCTYPE html>
 
-<h2>*****************Code Fighter *****************</h2>
- @*<label id="winner">@ViewBag.Winner</label>*@
-    <label class="alert-danger" id="winner">Player 1 won!!!</label>
-    <form action="/play/index" method="post">
-        <input class="btn-info" type="submit" id="Continue" name="continue" value="Continuar">
-    </form>
-    <form action="/home/index" method="post">
-        <input class="btn-danger" type="submit" id="Restart" name="restart" value="Reiniciar">
-    </form>
+<label id="winner">@ViewBag.Winner</label>
+@using (Html.BeginForm("Index", "Match"))
+{
+    <input type="submit" value="Continue" />
+}
+@using (Html.BeginForm("Index", "Home"))
+{
+    <input type="submit" value="Restart" />
+}
